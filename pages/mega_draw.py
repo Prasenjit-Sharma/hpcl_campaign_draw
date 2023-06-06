@@ -7,6 +7,7 @@ from streamlit_extras.switch_page_button import switch_page
 
 def mega():
     but_home = st.button("Home", type="primary", use_container_width=True)
+    st.snow()
     if but_home:
         show_pages([Page("pages/loading_data.py", "Home")])
         switch_page("Home")
@@ -23,11 +24,12 @@ def mega():
 
         draw = st.button("Draw", type="primary", use_container_width=True)
     if draw:
-        st.balloons()
+
         df = um.mega_draw(start_date,end_date)
         with placeholder.container():
             st.dataframe(df)
             um.excel_write(df)
+            st.balloons()
 
 
 
