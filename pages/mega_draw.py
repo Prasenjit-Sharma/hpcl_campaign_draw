@@ -4,7 +4,6 @@ from st_pages import show_pages, add_page_title, hide_pages, Page, Section
 from streamlit_extras.switch_page_button import switch_page
 
 
-
 def mega():
     but_home = st.button("Home", type="primary", use_container_width=True)
     st.snow()
@@ -12,9 +11,9 @@ def mega():
         show_pages([Page("pages/loading_data.py", "Home")])
         switch_page("Home")
     st.header("Mega Draw")
-    placeholder =st.empty()
+    placeholder = st.empty()
     with placeholder.container():
-        col1,col2,col3 = st.columns(3)
+        col1, col2, col3 = st.columns(3)
         with col1:
             start_date = st.date_input("Start Date")
             um.lottie_animation("https://assets8.lottiefiles.com/private_files/lf30_mg1iit3m.json")
@@ -24,14 +23,14 @@ def mega():
 
         draw = st.button("Draw", type="primary", use_container_width=True)
     if draw:
-
-        df = um.mega_draw(start_date,end_date)
+        df = um.mega_draw(start_date, end_date)
         with placeholder.container():
             st.dataframe(df)
             um.excel_write(df)
             st.balloons()
 
-
+if "is_logged_in" not in st.session_state:
+    st.session_state["is_logged_in"] = False
 
 if st.session_state["is_logged_in"]:
     mega()

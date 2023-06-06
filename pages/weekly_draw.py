@@ -32,6 +32,8 @@ def weekly():
             um.excel_write(df)
             st.balloons()
 
+if "is_logged_in" not in st.session_state:
+    st.session_state["is_logged_in"] = False
 
 if st.session_state["is_logged_in"]:
     weekly()

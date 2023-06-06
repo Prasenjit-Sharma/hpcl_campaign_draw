@@ -31,6 +31,8 @@ def loading():
             show_pages([Page("pages/mega_draw.py", "Mega Draw")])
             switch_page("Mega Draw")
 
+if "is_logged_in" not in st.session_state:
+    st.session_state["is_logged_in"] = False
 
 if st.session_state["is_logged_in"]:
     loading()
