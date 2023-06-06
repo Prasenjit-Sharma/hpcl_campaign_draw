@@ -4,10 +4,12 @@ from useful_methods import UsefulMethods as um
 from st_pages import show_pages, add_page_title, hide_pages, Page, Section
 from streamlit_extras.switch_page_button import switch_page
 
+show_pages([Page("login.py", "Login")])
+
 # In initial logged_in is False
 if "is_logged_in" not in st.session_state:
     st.session_state["is_logged_in"] = False
-    st.session_state.page = -1
+
 
 # Empty Placeholder to store opening image and replace with the Data Choice Dashboard after Log in
 placeholder = st.empty()
@@ -38,41 +40,3 @@ if not st.session_state["is_logged_in"]:
                 st.error("😕 User not known or password incorrect")
 else:
     show_pages([Page("login.py", "Login")])
-# When Logged In
-# if st.session_state.page == 0:
-#     placeholder = st.empty()
-#     with placeholder.container():
-#         st.header("Bharo Aur Jeeto Dhamaka")
-#         st.subheader("Welcome to the Draw")
-#         but_load = st.button("Let the Games Begin🕹️", type="primary", use_container_width=True)
-#
-#         if but_load:
-#             df = um.reading_data()
-#             st.session_state.page = 1
-#
-# # Start of Draw
-# elif st.session_state.page == 1:
-#
-#
-#     df = df.drop_duplicates()
-#     no_of_entries = len(df)
-#     no_of_outlets = df["Outlet"].nunique()
-#     # st.dataframe(df.head(), use_container_width=True)
-#     with placeholder.container():
-#         st.header(f"We have {no_of_entries} participants from {no_of_outlets} outlets across 6 districts under "
-#                   f"Jodhpur Retail Region.")
-#         um.lottie_animation()
-#         but_draw = st.button("Let's Start The Lucky Draw🕹️", type="primary", use_container_width=True)
-#
-#     if but_draw:
-#
-#         st.session_state.page = 2
-#
-#
-# elif st.session_state.page == 2:
-#     with placeholder.container():
-#         st.header("Its Time to Find the Winner")
-#         tab1, tab2 = st.tabs(["Week 1","Week 2"])
-#
-#         with tab1:
-#             st.write("Welcome to Week 1 Draw")
