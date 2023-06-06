@@ -23,6 +23,7 @@ def mega():
 
         draw = st.button("Draw", type="primary", use_container_width=True)
     if draw:
+        st.balloons()
         df = um.mega_draw(start_date,end_date)
         with placeholder.container():
             st.dataframe(df)

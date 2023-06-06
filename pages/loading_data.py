@@ -21,6 +21,7 @@ def loading():
         um.lottie_animation("https://assets8.lottiefiles.com/private_files/lf30_mg1iit3m.json")
         but_week = st.button("Let's Start Weekly Draw🕹️", type="primary", use_container_width=True)
         if but_week:
+            st.snow()
             show_pages([Page("pages/weekly_draw.py", "Weekly Draw")])
             switch_page("Weekly Draw")
 
@@ -28,6 +29,7 @@ def loading():
         um.lottie_animation("https://assets5.lottiefiles.com/packages/lf20_touohxv0.json")
         but_mega = st.button("Let's Start Mega Draw🕹️", type="primary", use_container_width=True)
         if but_mega:
+            st.snow()
             show_pages([Page("pages/mega_draw.py", "Mega Draw")])
             switch_page("Mega Draw")
 
